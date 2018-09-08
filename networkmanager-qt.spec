@@ -5,17 +5,16 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : networkmanager-qt
-Version  : 5.49.0
-Release  : 2
-URL      : https://download.kde.org/stable/frameworks/5.49/networkmanager-qt-5.49.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.49/networkmanager-qt-5.49.0.tar.xz
-Source99 : https://download.kde.org/stable/frameworks/5.49/networkmanager-qt-5.49.0.tar.xz.sig
+Version  : 5.50.0
+Release  : 3
+URL      : https://download.kde.org/stable/frameworks/5.50/networkmanager-qt-5.50.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.50/networkmanager-qt-5.50.0.tar.xz
+Source99 : https://download.kde.org/stable/frameworks/5.50/networkmanager-qt-5.50.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : LGPL-2.1
 Requires: networkmanager-qt-lib
 Requires: networkmanager-qt-license
-BuildRequires : NetworkManager-dev
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : pkg-config
@@ -58,14 +57,14 @@ license components for the networkmanager-qt package.
 
 
 %prep
-%setup -q -n networkmanager-qt-5.49.0
+%setup -q -n networkmanager-qt-5.50.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1534105878
+export SOURCE_DATE_EPOCH=1536426387
 mkdir clr-build
 pushd clr-build
 %cmake ..
@@ -73,7 +72,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1534105878
+export SOURCE_DATE_EPOCH=1536426387
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/networkmanager-qt
 cp COPYING.LIB %{buildroot}/usr/share/doc/networkmanager-qt/COPYING.LIB
@@ -104,6 +103,8 @@ popd
 /usr/include/KF5/NetworkManagerQt/NetworkManagerQt/DeviceStatistics
 /usr/include/KF5/NetworkManagerQt/NetworkManagerQt/Dhcp4Config
 /usr/include/KF5/NetworkManagerQt/NetworkManagerQt/Dhcp6Config
+/usr/include/KF5/NetworkManagerQt/NetworkManagerQt/DnsConfiguration
+/usr/include/KF5/NetworkManagerQt/NetworkManagerQt/DnsDomain
 /usr/include/KF5/NetworkManagerQt/NetworkManagerQt/GenericDevice
 /usr/include/KF5/NetworkManagerQt/NetworkManagerQt/GenericSetting
 /usr/include/KF5/NetworkManagerQt/NetworkManagerQt/GenericTypes
@@ -167,6 +168,8 @@ popd
 /usr/include/KF5/NetworkManagerQt/networkmanagerqt/devicestatistics.h
 /usr/include/KF5/NetworkManagerQt/networkmanagerqt/dhcp4config.h
 /usr/include/KF5/NetworkManagerQt/networkmanagerqt/dhcp6config.h
+/usr/include/KF5/NetworkManagerQt/networkmanagerqt/dnsconfiguration.h
+/usr/include/KF5/NetworkManagerQt/networkmanagerqt/dnsdomain.h
 /usr/include/KF5/NetworkManagerQt/networkmanagerqt/genericdevice.h
 /usr/include/KF5/NetworkManagerQt/networkmanagerqt/genericsetting.h
 /usr/include/KF5/NetworkManagerQt/networkmanagerqt/generictypes.h
@@ -223,7 +226,7 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/libKF5NetworkManagerQt.so.5.49.0
+/usr/lib64/libKF5NetworkManagerQt.so.5.50.0
 /usr/lib64/libKF5NetworkManagerQt.so.6
 
 %files license
